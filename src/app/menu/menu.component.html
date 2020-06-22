@@ -1,10 +1,54 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div class="flex">
+        <div>
+            <h3>Menu</h3>
+            <hr>
+        </div>
+    </div>
+    <!-- Displaying menu using grid list -->
+    <div class="fxFlex">
+        <mat-grid-list cols="2" rowHeight="200px">
+            <mat-grid-tile *ngFor="let dish of dishes">
+                <img height="200px" src={{dish.image}} alt={{dish.name}}>
+                <mat-grid-tile-footer>
+                    <h1 matLine> {{dish.name | uppercase }} </h1>
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <!-- Card to display selected dish -->
+
+    <div fxFlex *ngIf="selectedDish">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <h3>{{selectedDish.name | uppercase}}</h3>
+            </mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+          <mat-card-content>
+            <p>{{selectedDish.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+    </div>
+
+</div>
+
+
+<!-- | uppercase= is a builtin angular pipe -->
 <!-- fx-layout="column" - means content will be laid out vertically can also put row there to layout content horizontally
 fxLayoutGap="10px" - whatever content is included will be seperated by 10px gap
 <mat-list - allows to create list 
 fxFlex - this class means the whole thing in the tag will be treated as one unit / 1 piece of content >
 using ngfor to iterate dishes array
--->
-<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+
     <mat-list fxFlex>
         <mat-list-item *ngFor="let dish of dishes">
         <img matListAvatar src={{dish.image}} alt={{dish.name}}>
@@ -14,4 +58,6 @@ using ngfor to iterate dishes array
         </p>
         </mat-list-item>
     </mat-list>
-</div>
+
+    we redid the menu using mat grid list
+-->
