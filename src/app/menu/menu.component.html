@@ -9,7 +9,7 @@
     <!-- Displaying menu using grid list -->
     <div class="fxFlex">
         <mat-grid-list cols="2" rowHeight="200px">
-            <mat-grid-tile *ngFor="let dish of dishes" (click)="onSelect(dish)">
+            <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail',dish.id]">
                 <img height="200px" src={{dish.image}} alt={{dish.name}}>
                 <mat-grid-tile-footer>
                     <h1 matLine> {{dish.name | uppercase }} </h1>
@@ -19,15 +19,10 @@
     </div>
 
 
-    <!-- property dish , assigned value of variable defined by us selectedDish  on click current dish vlaue will be passed to selectedDish variable defined by us-->
-
-<app-dishdetail [dish] = "selectedDish"></app-dishdetail>
-
-
 <!-- | uppercase= is a builtin angular pipe -->
 <!-- fx-layout="column" - means content will be laid out vertically can also put row there to layout content horizontally
 fxLayoutGap="10px" - whatever content is included will be seperated by 10px gap
-<mat-list - allows to create list 
+<mat-list - allows to create list
 fxFlex - this class means the whole thing in the tag will be treated as one unit / 1 piece of content >
 using ngfor to iterate dishes array
 

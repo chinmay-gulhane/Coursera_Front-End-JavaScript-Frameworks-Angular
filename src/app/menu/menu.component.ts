@@ -10,7 +10,7 @@ import { DishService } from '../services/dish.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  
+
   /* array dishes of type Dish */
   dishes: Dish[];
 
@@ -26,6 +26,6 @@ export class MenuComponent implements OnInit {
   onSelect(dish: Dish){
     this.selectedDish = dish;
   }
-   
+
 
 }
